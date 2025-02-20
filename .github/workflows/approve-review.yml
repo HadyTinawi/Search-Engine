@@ -1,0 +1,18 @@
+name: 'Approve Review'
+
+on:
+  push:
+    branches:
+      - 'review/**'
+
+  pull_request_review:
+    types:
+      - 'submitted'
+      - 'edited'
+
+jobs:
+  main:
+    name: 'Run'
+    uses: 'usf-cs272-spring2024/cs272-bot/.github/workflows/approve-review.yml@main'
+    secrets: 'inherit'
+    permissions: 'write-all'

@@ -1,0 +1,19 @@
+name: 'Request Review'
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Release to review'
+        required: true
+        default: 'v1.0.0'
+        type: 'string'
+
+jobs:
+  main:
+    name: 'Run'
+    uses: 'usf-cs272-spring2024/cs272-bot/.github/workflows/request-review.yml@main'
+    secrets: 'inherit'
+    permissions: 'write-all'
+    with:
+      head_ref: '${{ inputs.release }}'
